@@ -100,7 +100,7 @@ html, body, #mapDiv {
         });
 
         map.on("load", function () {
-            addGeoJsonLayer("http://myCorsEnabledServer.com/canada.geojson");
+            addGeoJsonLayer("./data/dc-schools.json");
         });
 
         // Add the layer

@@ -47,7 +47,7 @@
         });
 
         map.on("load", function () {
-            addGeoJsonLayer("./data/dc-schools.json");
+            addGeoJsonLayer("./data/dc-school-zones.json");
         });
 
         function selectGeoJsonData(e) {
@@ -111,14 +111,14 @@
             </button>
         </div>
         <div class="panel-body collapse in">
-            <p>Load GeoJSON into the map as a GraphicsLayer. <a href="https://github.com/esri/Terraformer">Terraformer</a> converts all GeoJSON to ArcGIS JSON.</p>
+            <p>Load GeoJSON into the map as a GraphicsLayer. Uses <a href="https://github.com/esri/Terraformer">Terraformer</a> to convert GeoJSON to ArcGIS JSON.</p>
             <div class="form text-left">
                 <div class="form-group">
                     <label class="control-label">Sample Data</label> 
                     <select class="form-control" id="selGeoJson">
-                        <option value="./data/dc-schools.json">GeoJSON File - D.C. Schools</option>
-                        <option value="./data/dc-bike-routes.json">GeoJSON File - D.C. Bike Routes</option>
                         <option value="./data/dc-school-zones.json">GeoJSON File - D.C. School Zones</option>
+                        <option value="./data/dc-bike-routes.json">GeoJSON File - D.C. Bike Routes</option>
+                        <option value="./data/dc-schools.json">GeoJSON File - D.C. Schools</option>
                         <option value="./data/canada.json">GeoJSON File - Canada</option>
                         <option value="./data/usa.json">GeoJSON File - USA</option>
                         <option value="http://koop.dc.esri.com/github/colemanm/hurricanes/fl_2004_hurricanes.json">Koop Server - Hurricanes</option>
@@ -127,8 +127,8 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="control-label">URL <a target="_blank" href="https://developers.arcgis.com/javascript/jshelp/ags_proxy.html">(File or CORS Servers Only)</a></label>
-                    <input type="text" class="form-control" id="geoJsonUrl" value="http://opendata.dc.gov/datasets/81a9d9885947483aa2088d81b20bfe66_5.geojson" placeholder="http://opendata.dc.gov/datasets/81a9d9885947483aa2088d81b20bfe66_5.geojson">
+                    <label class="control-label">URL <a target="_blank" href="https://developers.arcgis.com/javascript/jshelp/ags_proxy.html">(Domain File/CORS Server)</a></label>
+                    <input type="text" class="form-control" id="geoJsonUrl" value="./data/dc-school-zones.json" placeholder="./data/dc-school-zones.json">
                 </div>
                 <div class="form-group text-center">
                     <button id="btnAdd" class="btn btn-success">Add Your Data</button>
