@@ -1,6 +1,6 @@
 # geojson-layer-js
 
-A simple layer for the [ArcGIS for Javascript API](https://developers.arcgis.com/javascript/) that lets you load GeoJSON resource in the map. It uses [Terraformer](http://terraformer.io) to convert GeoJSON to ArcGIS JSON and supports all GraphicLayer operations. e.g. popups, rendering... 
+An easy way to load GeoJSON resources into your [ArcGIS](https://developers.arcgis.com/javascript/) map. This is a simple custom layer that uses [Terraformer](http://terraformer.io) to convert GeoJSON to ArcGIS JSON.  It "should" support all GraphicLayer operations. e.g. popups, rendering... 
 
 [View demo app](http://esri.github.io/geojson-layer-js/geojsonlayer.html)
 
@@ -13,17 +13,17 @@ A simple layer for the [ArcGIS for Javascript API](https://developers.arcgis.com
 
 ## Usage
 ```
-// Example 1: Load GeoJSON from a file
+// Example 1: Load from a file
 var geoJsonLayer1 = new GeoJsonLayer({
-    url: "http://www.myCorsEnabledServer.com/canada.geojson"
+    url: "http://www.myCorsEnabledServer.com/canada.json"
 });
 
-// Example 2: Load GeoJSON from a server
+// Example 2: Load from a server
 var geoJsonLayer2 = new GeoJsonLayer({
     url: "http://opendata.dc.gov/datasets/81a9d9885947483aa2088d81b20bfe66_5.geojson"
 });
 
-// Example 3: Load GeoJSON from a FeatureCollection
+// Example 3: Load from a FeatureCollection
 var geoJsonLayer3 = new GeoJsonLayer({
     data: myFeatureCollection 
 });
@@ -44,10 +44,9 @@ map.addLayer(geoJsonLayer3);
 //          Optional: Limit the maximum graphics to draw. Default is 1000.
 ```
 
-Developer Notes 
-* GeoJSON should be in geographic coordinates (wkid 4326). Learn more about [spatial reference here](https://developers.arcgis.com/javascript/jsapi/spatialreference-amd.html) to automatically project data. 
-* All GeoJSON files must reside on the same domain as the application. 
-* All servers must be CORS enabled or alternatively a proxy can also be used. See [this documentation](https://developers.arcgis.com/javascript/jshelp/inside_defaults.html) for more information.
+##Developer Notes 
+* All GeoJSON data needs to be in geographic coordinates [(wkid 4326)](https://developers.arcgis.com/javascript/jsapi/spatialreference-amd.html).
+* All GeoJSON resources must reside on the same domain as the app unless a [CORS enabled server](https://developers.arcgis.com/javascript/jshelp/ags_proxy.html) or a [proxy](https://developers.arcgis.com/javascript/jshelp/ags_proxy.html) is used. NOTE: GitHub gh-pages servers are not CORS enabled!
 * Terraformer does not support dojo require() and must be loaded directly into the page.
 
 ```
@@ -139,8 +138,6 @@ html, body, #mapDiv {
 ## Issues
 
 Find a bug or want to request a new feature?  Please let us know by submitting an issue.  Thank you!
-
-* Directions - Uses OAuth and requires you to sign up for a [free ArcGIS Developer Subscription](https://developers.arcgis.com/en/sign-up/) to use the app.
 
 ## Contributing
 
