@@ -57,30 +57,35 @@ define([
         },
 
         _setDefaultSymbols: function () {
-            function getRandomColor(transparency) {
-                var min = 50,
-                    max = 200;
-                function getRandomInt() {
+            function getRandomColor(mainColor, transparency) {
+                function getRandomInt(min, max) {
                     return Math.floor(Math.random() * (max - min + 1)) + min;
                 }
-                return new Color([getRandomInt(), getRandomInt(), getRandomInt(), transparency]);
+                switch (mainColor) {
+                    case "red":
+                        return new Color([getRandomInt(150, 255), getRandomInt(0, 255), getRandomInt(0, 255), transparency]);
+                    case "green":
+                        return new Color([getRandomInt(0, 155), getRandomInt(150, 255), getRandomInt(0, 155), transparency]);
+                    case "blue":
+                        return new Color([getRandomInt(0, 255), getRandomInt(0, 255), getRandomInt(150, 255), transparency]);
+                }
             }
-            // Random colors - TODO: These color suck!
-            this._simplePointSym = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_CIRCLE, 14,
-                new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, getRandomColor(0.75), 0.5),
-                    getRandomColor(0.85));
-            this._simpleLineSym = new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new Color([50, 50, 50, 0.75]), 2);
+            // Random colors
+            this._simplePointSym = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_CIRCLE, 8,
+                new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, getRandomColor("blue", 0.5), 1),
+                    getRandomColor("blue", 0.75));
+            this._simpleLineSym = new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, getRandomColor("red", 0.9), 1);
             this._simplePolygonSym = new SimpleFillSymbol("solid",
-                    new SimpleLineSymbol("solid", new Color([50, 50, 50, 0.25]), 1),
-                    getRandomColor(0.25));
+                    new SimpleLineSymbol("solid", new Color([50, 50, 50, 0.15]), 1),
+                    getRandomColor("green", 0.15));
             // Option to hardcod colors here
             // this._simplePointSym = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_CIRCLE, 10,
-            //      new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new Color([50, 50, 150]), 0.5),
-            //      new Color([0, 50, 150, 0.25]));
-            // this._simpleLineSym = new SimpleLineSymbol("solid", new Color([255, 50, 50, 1]), 2);
+            //      new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new Color([150, 150, 150]), 0.75),
+            //      new Color([50, 130, 255, 0.75]));
+            // this._simpleLineSym = new SimpleLineSymbol("solid", new Color([255, 50, 50, 0.65]), 2);
             // this._simplePolygonSym = new SimpleFillSymbol("solid",
-            //         new SimpleLineSymbol("solid", new Color([0, 0, 0, 0.25]), 1),
-            //         new Color([50, 150, 50, 0.5]));
+            //         new SimpleLineSymbol("solid", new Color([0, 0, 0, 0.15]), 1),
+            //         new Color([150, 255, 150, 0.10]));
         },
 
         _setCorsSevers: function () {
@@ -243,7 +248,7 @@ define([
         _addGraphicToLayer: function (graphic) {
             // Add or project and then add graphic
             if (this._inSpatialReference.wkid === 4326 || this._inSpatialReference.wkid === 102100) {
-                // API automatically translates between these for us, but map might not be in 102100!
+                // ArcGIS API automatically translates between these!
                 // if (graphic.geometry.spatialReference.wkid === 4326) {
                 //     graphic.setGeometry(webMercatorUtils.geographicToWebMercator(graphic.geometry));
                 // }
@@ -275,8 +280,6 @@ define([
                 this._drawCountTotal = arcgisJson.length;
             }
             // Add graphics to the layer with symbols, project if needed
-            // NOTE: We could probably send a single batch request to the Geometry Server 
-            // but we'd have to re-attach all geometries to graphics. Maybe version 0.2...
             for (i = 0; i < this._drawCountTotal; i++) {
                 feature = arcgisJson[i];
                 // Create graphic - magically sets the geometry type!
