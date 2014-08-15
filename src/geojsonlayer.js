@@ -74,17 +74,17 @@ define([
             this._simplePointSym = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_CIRCLE, 8,
                 new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, getRandomColor("blue", 0.5), 1),
                     getRandomColor("blue", 0.75));
-            this._simpleLineSym = new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, getRandomColor("red", 0.9), 1);
+            this._simpleLineSym = new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, getRandomColor("red", 0.9), 2);
             this._simplePolygonSym = new SimpleFillSymbol("solid",
                     new SimpleLineSymbol("solid", new Color([50, 50, 50, 0.15]), 1),
                     getRandomColor("green", 0.15));
             // Option to hardcod colors here
-            // this._simplePointSym = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_CIRCLE, 10,
-            //      new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new Color([150, 150, 150]), 0.75),
+            // this._simplePointSym = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_CIRCLE, 8,
+            //      new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new Color([150, 150, 150]), 0.5),
             //      new Color([50, 130, 255, 0.75]));
-            // this._simpleLineSym = new SimpleLineSymbol("solid", new Color([255, 50, 50, 0.65]), 2);
+            // this._simpleLineSym = new SimpleLineSymbol("solid", new Color([255, 50, 50, 0.75]), 2);
             // this._simplePolygonSym = new SimpleFillSymbol("solid",
-            //         new SimpleLineSymbol("solid", new Color([0, 0, 0, 0.15]), 1),
+            //         new SimpleLineSymbol("solid", new Color([0, 0, 0, 0.10]), 1),
             //         new Color([150, 255, 150, 0.10]));
         },
 
