@@ -47,7 +47,7 @@
         });
 
         map.on("load", function () {
-            addGeoJsonLayer("http://opendata.dc.gov/datasets/81a9d9885947483aa2088d81b20bfe66_5.geojson");
+            addGeoJsonLayer("./data/dc-schools.json");
         });
 
         function selectGeoJsonData(e) {
@@ -65,7 +65,7 @@
         function addGeoJsonLayer(url) {
             // Create the layer
             var geoJsonLayer = new GeoJsonLayer({
-                url: url // http://opendata.dc.gov/datasets/81a9d9885947483aa2088d81b20bfe66_5.geojson
+                url: url // ./data/dc-schools.json
             });
             // Zoom to layer
             geoJsonLayer.on("update-end", function (e) {
@@ -116,16 +116,18 @@
                 <div class="form-group">
                     <label class="control-label">Sample Data</label> 
                     <select class="form-control" id="selGeoJson">
-                        <option value="http://opendata.dc.gov/datasets/81a9d9885947483aa2088d81b20bfe66_5.geojson">ArcGIS Open Data - D.C. Schools</option>
+                        <option value="./data/dc-schools.json">GeoJSON File - D.C. Schools</option>
+                        <option value="./data/dc-bike-routes.json">GeoJSON File - D.C. Bike Routes</option>
+                        <option value="./data/dc-school-zones.json">GeoJSON File - D.C. School Zones</option>
+                        <option value="./data/canada.json">GeoJSON File - Canada</option>
+                        <option value="./data/usa.json">GeoJSON File - USA</option>
                         <option value="http://koop.dc.esri.com/github/colemanm/hurricanes/fl_2004_hurricanes.json">Koop Server - Hurricanes</option>
                         <option value="http://geeknixta.com/json/DEMOGRAPHICS_Blocks2010.geojson">Nixta's Server - Demographics</option>
                         <option value="http://geonode.geeknixta.com/citybikes/rest/services/citibikenyc/FeatureServer/0/query?f=geojson">Nixta's Server - NY Bikes</option>
-                        <option value="./data/canada.json">GeoJSON File - Canada</option>
-                        <option value="./data/usa.json">GeoJSON File - USA</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="control-label">URL <a target="_blank" href="https://developers.arcgis.com/javascript/jshelp/inside_defaults.html">(File or CORS Server Only)</a></label>
+                    <label class="control-label">URL <a target="_blank" href="https://developers.arcgis.com/javascript/jshelp/ags_proxy.html">(File or CORS Servers Only)</a></label>
                     <input type="text" class="form-control" id="geoJsonUrl" value="http://opendata.dc.gov/datasets/81a9d9885947483aa2088d81b20bfe66_5.geojson" placeholder="http://opendata.dc.gov/datasets/81a9d9885947483aa2088d81b20bfe66_5.geojson">
                 </div>
                 <div class="form-group text-center">
