@@ -56,7 +56,7 @@ map.addLayer(geoJsonLayer3);
 ```
 
 ## Example
-```
+``` HTML
 <!DOCTYPE html> 
 <html>  
 <head> 
