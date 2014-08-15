@@ -1,6 +1,6 @@
 # geojson-layer-js
 
-An easy to load GeoJSON resources into your [ArcGIS](https://developers.arcgis.com/javascript/) map. This is a simple custom layer that uses [Terraformer](http://terraformer.io) to convert GeoJSON to ArcGIS JSON.  It "should" support all GraphicLayer operations. e.g. popups, rendering... 
+An easy way to load GeoJSON resources into your [ArcGIS](https://developers.arcgis.com/javascript/) map. This is a simple custom layer that uses [Terraformer](http://terraformer.io) to convert GeoJSON to ArcGIS JSON.  It "should" support all GraphicLayer operations. e.g. popups, rendering... 
 
 [View demo app](http://esri.github.io/geojson-layer-js/geojsonlayer.html)
 
@@ -45,8 +45,8 @@ map.addLayer(geoJsonLayer3);
 ```
 
 ##Developer Notes 
-* All GeoJSON data needs to be in geographic coordinates [(wkid 4326)]((https://developers.arcgis.com/javascript/jsapi/spatialreference-amd.html).
-* All GeoJSON files should reside on the same domain as the application unless the server is [CORS enabled]((https://developers.arcgis.com/javascript/jshelp/ags_proxy.html)) or a [proxy](https://developers.arcgis.com/javascript/jshelp/ags_proxy.html) is used. 
+* All GeoJSON data needs to be in geographic coordinates [(wkid 4326)](https://developers.arcgis.com/javascript/jsapi/spatialreference-amd.html).
+* All GeoJSON resources must reside on the same domain as the app unless a [CORS enabled server](https://developers.arcgis.com/javascript/jshelp/ags_proxy.html) or a [proxy](https://developers.arcgis.com/javascript/jshelp/ags_proxy.html) is used. NOTE: GitHub gh-pages servers are not CORS enabled!
 * Terraformer does not support dojo require() and must be loaded directly into the page.
 
 ```
