@@ -111,7 +111,7 @@
             </button>
         </div>
         <div class="panel-body collapse in">
-            <p>Load GeoJSON into the map as a GraphicsLayer. Uses <a href="https://github.com/esri/Terraformer">Terraformer</a> to convert GeoJSON to ArcGIS JSON.</p>
+            <p>Load GeoJSON into the map as a layer. <a href="https://github.com/esri/Terraformer">Terraformer</a> is used to convert GeoJSON to ArcGIS JSON.</p>
             <div class="form text-left">
                 <div class="form-group">
                     <label class="control-label">Sample Data</label> 
@@ -127,12 +127,17 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="control-label">URL <a target="_blank" href="https://developers.arcgis.com/javascript/jshelp/ags_proxy.html">(Domain File/CORS Server)</a></label>
-                    <input type="text" class="form-control" id="geoJsonUrl" value="./data/dc-school-zones.json" placeholder="./data/dc-school-zones.json">
+                    <label class="control-label">Your Data <a target="_blank" href="https://developers.arcgis.com/javascript/jshelp/ags_proxy.html">(URL/File/CORS Server)</a></label>
+                    <div class="input-group">
+                      <input type="text" class="form-control" id="geoJsonUrl" value="./data/dc-school-zones.json" placeholder="./data/dc-school-zones.json">
+                      <span class="input-group-btn">
+                        <button id="btnAdd" class="btn btn-success" type="button">Load</button>
+                      </span>
+                    </div>
                 </div>
+
                 <div class="form-group text-center">
-                    <button id="btnAdd" class="btn btn-success">Add Your Data</button>
-                    <button id="btnRemove" class="btn btn-default">Clear</button>
+                    <button id="btnRemove" class="btn btn-default btn-block">Clear All</button>
                 </div>
             </div>
         </div>
