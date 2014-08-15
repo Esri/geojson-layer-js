@@ -12,7 +12,7 @@ A simple layer for the [ArcGIS for Javascript API](https://developers.arcgis.com
 * Load GeoJSON data from a FeatureCollection
 
 ## Usage
-```
+``` JavaScript
 // Example 1: Load GeoJSON from a file
 var geoJsonLayer1 = new GeoJsonLayer({
     url: "http://www.myCorsEnabledServer.com/canada.geojson"
@@ -50,14 +50,14 @@ Developer Notes
 * All servers must be CORS enabled or alternatively a proxy can also be used. See [this documentation](https://developers.arcgis.com/javascript/jshelp/inside_defaults.html) for more information.
 * Terraformer does not support dojo require() and must be loaded directly into the page.
 
-```
+``` HTML
 <!-- Terraformer -->
 <script src="./vendor/terraformer/terraformer.min.js"></script>
 <script src="./vendor/terraformer-arcgis-parser/terraformer-arcgis-parser.min.js"></script>
 ```
 
 ## Example
-```
+``` HTML
 <!DOCTYPE html> 
 <html>  
 <head> 
