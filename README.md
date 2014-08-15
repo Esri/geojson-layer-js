@@ -12,7 +12,7 @@ An easy way to load GeoJSON resources into your [ArcGIS](https://developers.arcg
 * Load GeoJSON data from a FeatureCollection
 
 ## Usage
-```
+``` JavaScript
 // Example 1: Load from a file
 var geoJsonLayer1 = new GeoJsonLayer({
     url: "http://www.myCorsEnabledServer.com/canada.json"
@@ -34,7 +34,7 @@ map.addLayer(geoJsonLayer2);
 map.addLayer(geoJsonLayer3);
 ```
 
-```
+``` JavaScript
 // options:
 //      url: String
 //          Path to file or server endpoint. Server must be on the same domain or cors enabled. Or use a proxy.
@@ -49,7 +49,7 @@ map.addLayer(geoJsonLayer3);
 * All GeoJSON resources must reside on the same domain as the app unless a [CORS enabled server](https://developers.arcgis.com/javascript/jshelp/ags_proxy.html) or a [proxy](https://developers.arcgis.com/javascript/jshelp/ags_proxy.html) is used. NOTE: GitHub gh-pages servers are not CORS enabled!
 * Terraformer does not support dojo require() and must be loaded directly into the page.
 
-```
+``` HTML
 <!-- Terraformer -->
 <script src="./vendor/terraformer/terraformer.min.js"></script>
 <script src="./vendor/terraformer-arcgis-parser/terraformer-arcgis-parser.min.js"></script>
