@@ -20,7 +20,7 @@ define([
     ) {
     return declare([GraphicsLayer], {
 
-        // Required Terrformer library reference 
+        // Required Terrformer library reference
         _terrafomer: (typeof Terraformer !== 'undefined') ? Terraformer : null,
 
         constructor: function (options) {
@@ -38,7 +38,7 @@ define([
             this._data = options.data;
             // GeoJSON spatial reference (not optional)
             this._inSpatialReference = new SpatialReference({wkid: 4326});  // Data must be in Geographic Coordinates
-            // GeoJSON transformation (optional) 
+            // GeoJSON transformation (optional)
             this._outSpatialReference = null;
             // Default popup
             this.setInfoTemplate(options.infoTemplate || new InfoTemplate("GeoJSON Data", "${*}"));
@@ -167,7 +167,7 @@ define([
         },
 
         _getGeoJsonXhr: function (url) {
-            // xhr request to get data 
+            // xhr request to get data
             var requestHandle = esriRequest({
                 url: url,
                 handleAs: "json"
@@ -263,9 +263,9 @@ define([
             // This magically sets geometry type!
             graphic = new Graphic(arcgisJson);
             // Set the correct symbol based on type and render - NOTE: Only supports simple renderers
-            if (this.render && this.render.symbol) {
+            if (this.renderer && this.renderer.symbol) {
                 //graphic.setSymbol(this.render.getSymbol(graphic));  // use for complex renderers
-                graphic.setSymbol(this.render.symbol);
+                graphic.setSymbol(this.renderer.symbol);
             } else {
                 graphic.setSymbol(this._getEsriSymbol(graphic.geometry.type));
             }
