@@ -1,10 +1,10 @@
-<!DOCTYPE html> 
-<html>  
-<head> 
+<!DOCTYPE html>
+<html>
+<head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9">
 <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
-<title>ArcGIS GeoJSON Layer</title>  
+<title>ArcGIS GeoJSON Layer</title>
 <link rel="shortcut icon" href="//esri.github.io/quickstart-map-js/images/favicon.ico">
 <!-- ArcGIS API for JavaScript CSS-->
 <link rel="stylesheet" href="//js.arcgis.com/3.10/js/esri/css/esri.css">
@@ -71,8 +71,8 @@
                 url: url // ./data/dc-schools.json
             });
 
-            // Optional SimpleRenderer if you don't want a random symbol and color
-            //  var simpleJson = {
+            //Optional SimpleRenderer if you don't want a random symbol and color
+            // var simpleJson = {
             //     "type": "simple",
             //     "label": "",
             //     "description": "",
@@ -85,7 +85,7 @@
             //         "type": "esriSLS" // esriSMS, esriSLS
             //     }
             // };
-            // geoJsonLayer.render = new SimpleRenderer(simpleJson);
+            // geoJsonLayer.renderer = new SimpleRenderer(simpleJson);
 
             // Zoom to layer
             geoJsonLayer.on("update-end", function (e) {
@@ -93,6 +93,7 @@
             });
             // Add to map
             map.addLayer(geoJsonLayer);
+
         }
 
         function removeAllLayers() {
@@ -126,7 +127,7 @@
     <div class="panel panel-primary panel-fixed">
         <div class="panel-heading">
             <h3 class="panel-title">ArcGIS GeoJSON Layer</h3>
-            <button id="chevron" class="btn btn-primary btn-xs btn-absolute">          
+            <button id="chevron" class="btn btn-primary btn-xs btn-absolute">
                 <span class="glyphicon glyphicon-chevron-up"></span>
             </button>
         </div>
@@ -134,7 +135,7 @@
             <p>Load GeoJSON into the map as a layer. <a href="https://github.com/esri/Terraformer">Terraformer</a> is used to convert GeoJSON to ArcGIS JSON.</p>
             <div class="form text-left">
                 <div class="form-group">
-                    <label class="control-label">Sample Data</label> 
+                    <label class="control-label">Sample Data</label>
                     <select class="form-control" id="selGeoJson">
                         <option value="./data/dc-school-zones.json">GeoJSON File - D.C. School Zones</option>
                         <option value="./data/dc-metro-lines.json">GeoJSON File - D.C. Metro Lines</option>
