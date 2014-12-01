@@ -33,11 +33,12 @@
 <script>
     require(["esri/map",
         "./src/geojsonlayer.js",
+        "esri/renderers/SimpleRenderer",
         "dojo/on",
         "dojo/query",
         "dojo/dom",
         "dojo/domReady!"],
-      function (Map, GeoJsonLayer, on, query, dom) {
+      function (Map, GeoJsonLayer, SimpleRenderer, on, query, dom) {
 
         // Create map
         var map = new Map("mapDiv", {
@@ -69,6 +70,23 @@
             var geoJsonLayer = new GeoJsonLayer({
                 url: url // ./data/dc-schools.json
             });
+
+            // Optional SimpleRenderer if you don't want a random symbol and color
+            //  var simpleJson = {
+            //     "type": "simple",
+            //     "label": "",
+            //     "description": "",
+            //     "symbol": {
+            //         "color": [210,105,30,191],
+            //         "size": 10,
+            //         "angle": 0,
+            //         "xoffset": 0,
+            //         "yoffset": 0,
+            //         "type": "esriSLS" // esriSMS, esriSLS
+            //     }
+            // };
+            // geoJsonLayer.render = new SimpleRenderer(simpleJson);
+
             // Zoom to layer
             geoJsonLayer.on("update-end", function (e) {
                 map.setExtent(e.target.extent.expand(1.2));

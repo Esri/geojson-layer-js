@@ -8,6 +8,7 @@ define([
     "esri/symbols/SimpleMarkerSymbol",
     "esri/symbols/SimpleLineSymbol",
     "esri/symbols/SimpleFillSymbol",
+    "esri/renderers/SimpleRenderer",
     "esri/SpatialReference",
     "esri/geometry/webMercatorUtils",
     "esri/request",
@@ -15,7 +16,7 @@ define([
     "dojo/_base/url",
     "dojo/_base/lang"
 ],  function (declare, Graphic, GraphicsLayer, InfoTemplate, graphicsUtils, Color, SimpleMarkerSymbol,
-        SimpleLineSymbol, SimpleFillSymbol, SpatialReference, webMercatorUtils, esriRequest, esriConfig, Url, lang
+        SimpleLineSymbol, SimpleFillSymbol, SimpleRenderer, SpatialReference, webMercatorUtils, esriRequest, esriConfig, Url, lang
     ) {
     return declare([GraphicsLayer], {
 
@@ -261,8 +262,13 @@ define([
             var graphic;
             // This magically sets geometry type!
             graphic = new Graphic(arcgisJson);
-            // Set the correct symbol based on type
-            graphic.setSymbol(this._getEsriSymbol(graphic.geometry.type));
+            // Set the correct symbol based on type and render - NOTE: Only supports simple renderers
+            if (this.render && this.render.symbol) {
+                //graphic.setSymbol(this.render.getSymbol(graphic));  // use for complex renderers
+                graphic.setSymbol(this.render.symbol);
+            } else {
+                graphic.setSymbol(this._getEsriSymbol(graphic.geometry.type));
+            }
             // Update SR because terraformer sets incorrect spatial reference
             graphic.geometry.setSpatialReference(this._inSpatialReference); // NOTE: Has to match features!
             return graphic;
