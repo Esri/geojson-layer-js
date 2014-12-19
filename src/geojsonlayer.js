@@ -41,7 +41,9 @@ define([
             // GeoJSON transformation (optional)
             this._outSpatialReference = null;
             // Default popup
-            this.setInfoTemplate(options.infoTemplate || new InfoTemplate("GeoJSON Data", "${*}"));
+            if (options.infoTemplate !== false) {
+                this.setInfoTemplate(options.infoTemplate || new InfoTemplate("GeoJSON Data", "${*}"));
+            }
             // Default symbols
             this._setDefaultSymbols();
             // Enable browser to make cross-domain requests
