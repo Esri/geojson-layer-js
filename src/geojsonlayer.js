@@ -34,7 +34,6 @@ define([
             this._validState = true;
             // First look for url
             this._url = options.url;
-            this._postData = options.postData;
             // Accept data as geojson features array. This will override options.url!
             this._data = options.data;
             // GeoJSON spatial reference (not optional)
@@ -173,8 +172,6 @@ define([
             // xhr request to get data
             var requestHandle = esriRequest({
                 url: url,
-                content: this._postData,
-                usePost: this._postData != null,
                 handleAs: "json"
             });
             requestHandle.then(lang.hitch(this, this._getGeoJson),
