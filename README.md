@@ -2,7 +2,7 @@
 
 An easy way to load GeoJSON resources into your [ArcGIS](https://developers.arcgis.com/javascript/) map. This is a simple custom layer that uses [Terraformer](http://terraformer.io) to convert GeoJSON to ArcGIS JSON.  It "should" support all GraphicLayer operations. e.g. popups, rendering... 
 
-[View demo app](http://esri.github.io/geojson-layer-js/geojsonlayer.html)
+[View demo app live](http://esri.github.io/geojson-layer-js/geojsonlayer.html)
 
 ![App](https://raw.github.com/Esri/geojson-layer-js/master/geojson-layer-js.png)
 
