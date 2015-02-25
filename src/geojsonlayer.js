@@ -44,6 +44,10 @@ define([
             if (options.infoTemplate !== false) {
                 this.setInfoTemplate(options.infoTemplate || new InfoTemplate("GeoJSON Data", "${*}"));
             }
+            // Renderer
+            if (options.renderer) {
+                this.renderer = options.renderer;
+            }
             // Default symbols
             this._setDefaultSymbols();
             // Enable browser to make cross-domain requests
@@ -55,6 +59,10 @@ define([
             this._drawCountTotal = 0;
             // Extended public properties
             this.extent = null;
+            // Graphics layer does not call onLoad natively but we'll call it after features have been added to layer
+            if (options.onLoad && typeof options.onLoad === 'function') {
+                this.onLoad = options.onLoad;
+            }
             // Make sure the environment is good to go!
             this._updateState();
         },
@@ -295,6 +303,10 @@ define([
                 // Add to layer
                 this._addGraphicToLayer(graphic);
             }
+            // Call onLoad
+            // emit mixes in `layer` and `target` properties as event object
+            // onLoad provided via constructor just returns `layer` object
+            this.onLoad(this);
         }
     });
 });
