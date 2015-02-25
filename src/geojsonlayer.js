@@ -44,6 +44,10 @@ define([
             if (options.infoTemplate !== false) {
                 this.setInfoTemplate(options.infoTemplate || new InfoTemplate("GeoJSON Data", "${*}"));
             }
+            // Renderer
+            if (options.renderer) {
+                this.renderer = options.renderer;
+            }
             // Default symbols
             this._setDefaultSymbols();
             // Enable browser to make cross-domain requests
