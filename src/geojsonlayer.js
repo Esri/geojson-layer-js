@@ -272,10 +272,8 @@ define([
             var graphic;
             // This magically sets geometry type!
             graphic = new Graphic(arcgisJson);
-            // Set the correct symbol based on type and render - NOTE: Only supports simple renderers
-            if (this.renderer && this.renderer.symbol) {
-                //graphic.setSymbol(this.render.getSymbol(graphic));  // use for complex renderers
-                graphic.setSymbol(this.renderer.symbol);
+            if (this.renderer) {
+                graphic.setSymbol(this.renderer.symbol || this.renderer.getSymbol(graphic));
             } else {
                 graphic.setSymbol(this._getEsriSymbol(graphic.geometry.type));
             }
