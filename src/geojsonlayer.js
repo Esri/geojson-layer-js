@@ -42,7 +42,11 @@ define([
             this._outSpatialReference = null;
             // Default popup
             if (options.infoTemplate !== false) {
-                this.setInfoTemplate(options.infoTemplate || new InfoTemplate("GeoJSON Data", "${*}"));
+                this.setInfoTemplate(
+                    //if InfoTemplate-typed object passed in use it
+                    options.infoTemplate && options.infoTemplate.declaredClass === 'esri.InfoTemplate' ? options.infoTemplate
+                    // otherwise, create InfoTemplate-typed object from config or default JSON
+                    : new InfoTemplate(options.infoTemplate || {title: "GeoJSON Data", content: "${*}"}));
             }
             // Renderer
             if (options.renderer) {
