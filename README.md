@@ -44,7 +44,7 @@ map.addLayer(geoJsonLayer3);
 //          Optional: Limit the maximum graphics to draw. Default is 1000.
 ```
 
-##Developer Notes 
+## Developer Notes 
 * All GeoJSON data needs to be in geographic coordinates [(wkid 4326)](https://developers.arcgis.com/javascript/jsapi/spatialreference-amd.html).
 * All GeoJSON resources must reside on the same domain as the app unless a [CORS enabled server](https://developers.arcgis.com/javascript/jshelp/ags_proxy.html) or a [proxy](https://developers.arcgis.com/javascript/jshelp/ags_proxy.html) is used. NOTE: GitHub gh-pages servers are not CORS enabled!
 * Terraformer does not support dojo require() and must be loaded directly into the page.
