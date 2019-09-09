@@ -1,6 +1,6 @@
 # geojson-layer-js
 
-NOTE: The ArcGIS API for JavaScript 4 now supports a native [GeoJSONLayer](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-GeoJSONLayer.html). Please use [GeoJSONlayer](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-GeoJSONLayer.html) moving forward.
+> NOTE: The ArcGIS API for JavaScript 4 now supports a native [GeoJSONLayer](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-GeoJSONLayer.html). Please use [GeoJSONLayer](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-GeoJSONLayer.html) moving forward.
 
 An easy way to load GeoJSON resources into your [ArcGIS](https://developers.arcgis.com/javascript/) map. This is a simple custom layer that uses [Terraformer](http://terraformer.io) to convert GeoJSON to ArcGIS JSON.  It "should" support all GraphicLayer operations. e.g. popups, rendering... 
 
